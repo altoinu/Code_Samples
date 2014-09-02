@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DesignableDAEModel Sample</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.flexbuilder.project.flexnature</nature>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] DesignableDAEModel AS3-src</name>
+			<type>2</type>
+			<locationURI>COMMON_LIB/AS3/library/web/DesignableDAEModel%20AS3/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] Drawing Board AS3-src</name>
+			<type>2</type>
+			<locationURI>COMMON_LIB/AS3/library/web/Drawing%20Board%20AS3/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] _AS3_Common_Flash-src</name>
+			<type>2</type>
+			<locationURI>COMMON_LIB/AS3/common/_AS3_Common_Flash/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] _AS3_Common_Flex-src</name>
+			<type>2</type>
+			<locationURI>COMMON_LIB/AS3/common/_AS3_Common_Flex/src</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:validators="com.altoinu.flex.validators.mx.validators.*">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		
+		<validators:SameContentsValidator source="{[textInput1, textInput2]}" property="text"/>
+		
+		<validators:EmailConfirmFieldsValidator source="{[email1, email2, email3]}" property="text"/>
+		
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</s:layout>
+	
+	<s:VGroup>
+		<s:Label text="Same contents validator example"/>
+		<s:TextInput id="textInput1"/>
+		<s:TextInput id="textInput2"/>
+	</s:VGroup>
+	
+	<s:VGroup>
+		<s:Label text="Same email validator example"/>
+		<s:TextInput id="email1"/>
+		<s:TextInput id="email2"/>
+		<s:TextInput id="email3"/>
+	</s:VGroup>
+	
+</s:Application>

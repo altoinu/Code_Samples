@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:twitter="com.altoinu.flex.customcomponents.twitter.*"
+			   minWidth="955" minHeight="600">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.altoinu.flash.customcomponents.twitter.models.TweetButtonParameters;
+			
+			[Bindable]
+			private var tweetVisible:Boolean = true;
+			
+			[Bindable]
+			private var tweetEnabled:Boolean = true;
+			
+			protected function buttonExpandVertical_clickHandler(event:MouseEvent):void
+			{
+				
+				buttonHeightExpander.play();
+				
+			}
+			
+			protected function buttonExpandHorizontal_clickHandler(event:MouseEvent):void
+			{
+				
+				buttonWidthExpander.play();
+				
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				
+				var tweetParam:TweetButtonParameters = new TweetButtonParameters("http://en.wikipedia.org/wiki/Japanese_curry",
+					"altoinu",
+					"Curry Rice!!",
+					"meshiuma_yonaka");
+				
+				tweetParam.tweet();
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		
+		<s:Parallel id="buttonHeightExpander" target="{buttonExpandVertical}">
+			<s:Resize heightTo="200"/>
+		</s:Parallel>
+		
+		<s:Parallel id="buttonWidthExpander" target="{buttonExpandHorizontal}">
+			<s:Resize widthTo="400"/>
+		</s:Parallel>
+		
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
+	</s:layout>
+	
+	<!--
+	This button demonstrates that FacebookLikeButtonUIComponent can resize to fit in Flex layout dynamically
+	-->
+	<s:Button id="buttonExpandVertical"
+			  label="I expand vertically"
+			  click="buttonExpandVertical_clickHandler(event)"/>
+	
+	<s:Label text="Tweet button"/>
+	
+	<s:HGroup minWidth="300">
+		
+		<s:Button id="buttonExpandHorizontal"
+				  label="I expand horizontally"
+				  click="buttonExpandHorizontal_clickHandler(event)"/>
+		
+		<s:BorderContainer width="100%" height="75"
+						   minWidth="75">
+			
+			<twitter:TweetButtonUIComponent width="100%" height="100%"
+											visible="{tweetVisible}"
+											enabled="{tweetEnabled}"
+											text="Hello, I'm making a tweet"
+											via="altoinu"
+											url="http://altoinu.com/"
+											related="altoinu"
+											count="vertical"
+											targetDivID="flashContentContainer"/>
+			
+		</s:BorderContainer>
+		
+	</s:HGroup>
+	
+	<!--
+	Toggles properties of StageVideoPlayerUIComponent
+	-->
+	<s:HGroup>
+		
+		<s:Button label="Visibility {tweetVisible}"
+				  click="tweetVisible = !tweetVisible;"/>
+		
+		<s:Button label="Enabled {tweetEnabled}"
+				  click="tweetEnabled = !tweetEnabled;"/>
+		
+	</s:HGroup>
+	
+	<s:Button label="AS3 Tweet Button"
+			  click="button1_clickHandler(event)"/>
+	
+</s:Application>

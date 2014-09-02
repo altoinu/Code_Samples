@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<project default="build" name="ANE Build" basedir=".">
+	<!--
+	Version 1.0.0
+	
+	Required:
+	- Preferences/Ant/Runtime/Properties/Global properties -> add "air.sdk" and point to AIR SDK folder
+	-->
+	
+	<!--
+	Variables
+	Rename these as necessary
+	-->
+	<eclipse.convertPath resourcepath="/ANESampleMain" property="ANE_MAIN_SWC_DIR" />
+	<eclipse.convertPath resourcepath="/ANESampleDefault" property="ANE_DEFAULT_SWC_DIR" />
+
+	<property name="ANDROID_JAR" value="libANESampleAndroidLib.jar" />
+
+	<property name="ANE_OUTPUT_DIR" value="ane" />
+	<property name="ANE_FILE_NAME" value="ANESample.ane" />
+
+	<!-- copy main .swc -->
+	<target name="mainSWC">
+
+		<!--
+		Look in ActionScript Library project ANE_MAIN_SWC_DIR's
+		bin folder for *.swc files, and store it in swc.main.list
+		-->
+		<pathconvert property="swc.main.list" pathsep="${line.separator}">
+			<map from="${basedir}${file.separator}" to="" />
+			<fileset dir="${ANE_MAIN_SWC_DIR}${file.separator}bin">
+				<include name="*.swc" />
+			</fileset>
+		</pathconvert>
+
+		<!--
+		Use first file in swc.main.list as swc.main.name
+		-->
+		<loadresource property="swc.main.name">
+			<string value="${swc.main.list}" />
+			<filterchain>
+				<headfilter lines="1" />
+			</filterchain>
+		</loadresource>
+
+		<echo message="Main .swc: ${swc.main.name}" />
+
+		<!--
+		Copy swc.main.name file to this project directory
+		-->
+		<copy file="${swc.main.name}" todir=".">
+		</copy>
+
+	</target>
+
+	<!-- get reference to default -->
+	<target name="defaultSWC">
+
+		<!--
+		Look in ActionScript Library project ANE_DEFAULT_SWC_DIR's
+		bin folder for *.swc files, and store it in swc.default.list
+		-->
+		<pathconvert property="swc.default.list" pathsep="${line.separator}">
+			<map from="${basedir}${file.separator}" to="" />
+			<fileset dir="${ANE_DEFAULT_SWC_DIR}${file.separator}bin">
+				<include name="*.swc" />
+			</fileset>
+		</pathconvert>
+
+		<!--
+		Use first file in swc.default.list as swc.default.name
+		-->
+		<loadresource property="swc.default.name">
+			<string value="${swc.default.list}" />
+			<filterchain>
+				<headfilter lines="1" />
+			</filterchain>
+		</loadresource>
+
+		<echo message="Default .swc: ${swc.default.name}" />
+
+	</target>
+
+	<!-- extract required library.swf for each platform from ActionScript Library .swc -->
+	<target name="libraries" depends="mainSWC, defaultSWC">
+
+		<echo message="Extracting library.swf for each platform" />
+
+		<!-- tar -xvf src -C dest library.swf -->
+		<unzip src="${swc.main.name}" dest="android">
+			<patternset>
+				<include name="library.swf" />
+			</patternset>
+		</unzip>
+
+		<unzip src="${swc.main.name}" dest="ios">
+			<patternset>
+				<include name="library.swf" />
+			</patternset>
+		</unzip>
+
+		<unzip src="${swc.default.name}" dest="default">
+			<patternset>
+				<include name="library.swf" />
+			</patternset>
+		</unzip>
+
+	</target>
+
+	<!-- combine all *.jar files into single file -->
+	<target name="androidJAR">
+
+		<!--
+		ADT's export to .jar does not combine 3rd party .jar files
+		so we need to combine all of them into .jar used for ane
+		-->
+		<echo message="Combining all .jar into single file (Adobe AIR ane requires it)" />
+
+		<!--
+		Get list of all .jar files in android folder
+		-->
+		<pathconvert property="files.lib.list" pathsep="${line.separator}">
+			<fileset dir="android">
+				<include name="**/*.jar" />
+			</fileset>
+		</pathconvert>
+
+		<loadresource property="files.lib.jar">
+			<string value="${files.lib.list}" />
+		</loadresource>
+
+		<echo message="${files.lib.jar}" />
+
+		<!--
+		Zip all .jar files into ANDROID_JAR
+		-->
+		<jar destfile="android${file.separator}${ANDROID_JAR}" update="true">
+			<zipgroupfileset dir="android" includes="**/*.jar">
+			</zipgroupfileset>
+		</jar>
+
+	</target>
+
+	<target name="iOSxib">
+
+		<exec executable="/Applications/Xcode.app/Contents/Developer/usr/bin/ibtool">
+			<arg line="--errors --warnings --notices --output-format human-readable-text" />
+			<arg line="--sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk" />
+			<arg line="--compile ios/ToDoList.nib ios/ToDoList.xib" />
+		</exec>
+
+	</target>
+
+	<!-- build .ane -->
+	<target name="build" depends="mainSWC, libraries, androidJAR">
+		<!-- iOSxib -->
+
+		<echo message="Building native extension .ane" />
+
+		<mkdir dir="${ANE_OUTPUT_DIR}" />
+
+		<exec executable="${air.sdk}/bin/adt" failonerror="true">
+			<arg value="-package" />
+			<arg line="-target ane '${ANE_OUTPUT_DIR}${file.separator}${ANE_FILE_NAME}' extension.xml" />
+			<arg line="-swc '${swc.main.name}'" />
+			<arg line="-platform Android-ARM -C android ." />
+			<arg line="-platform iPhone-ARM -platformoptions platformoptions.xml -C ios ." />
+			<arg line="-platform default -C default ." />
+		</exec>
+
+		<echo message=".ane built: ${ANE_OUTPUT_DIR}${file.separator}${ANE_FILE_NAME}" />
+
+	</target>
+
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="3073aec9-6009-4938-a62b-7fdbd2729620" projectUUID="3073aec9-6009-4938-a62b-7fdbd2729620" pureCatalystProject="false" sdkVersion="4.6.0" uuid="3a59941f-53ab-469c-b7c3-2b649d154e87" version="15">
+  <projects/>
+  <src>
+    <linked isMain="false" location="${EPRIZE_FLASH}" path="${EPRIZE_FLASH}" position="0" uuid="3a59941f-53ab-469c-b7c3-2b649d154e87"/>
+  </src>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="3a59941f-53ab-469c-b7c3-2b649d154e87"/>
+    <linked location="/libs" path="\libs" position="1" uuid="3a59941f-53ab-469c-b7c3-2b649d154e87"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>

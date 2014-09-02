@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB0E7BC118D7907E00AB6EE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BC018D7907E00AB6EE8 /* Foundation.framework */; };
+		FB0E7BC318D7907E00AB6EE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BC218D7907E00AB6EE8 /* CoreGraphics.framework */; };
+		FB0E7BC518D7907E00AB6EE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BC418D7907E00AB6EE8 /* UIKit.framework */; };
+		FB0E7BCB18D7907E00AB6EE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB0E7BC918D7907E00AB6EE8 /* InfoPlist.strings */; };
+		FB0E7BCD18D7907E00AB6EE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E7BCC18D7907E00AB6EE8 /* main.m */; };
+		FB0E7BD118D7907E00AB6EE8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E7BD018D7907E00AB6EE8 /* AppDelegate.m */; };
+		FB0E7BD318D7907E00AB6EE8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB0E7BD218D7907E00AB6EE8 /* Images.xcassets */; };
+		FB0E7BDA18D7907F00AB6EE8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BD918D7907F00AB6EE8 /* XCTest.framework */; };
+		FB0E7BDB18D7907F00AB6EE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BC018D7907E00AB6EE8 /* Foundation.framework */; };
+		FB0E7BDC18D7907F00AB6EE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0E7BC418D7907E00AB6EE8 /* UIKit.framework */; };
+		FB0E7BE418D7907F00AB6EE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB0E7BE218D7907F00AB6EE8 /* InfoPlist.strings */; };
+		FB0E7BE618D7907F00AB6EE8 /* UIWebViewBridge_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E7BE518D7907F00AB6EE8 /* UIWebViewBridge_ExampleTests.m */; };
+		FB0E7BFB18D796FE00AB6EE8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0E7BFA18D796FE00AB6EE8 /* MainStoryboard.storyboard */; };
+		FB0E7BFE18D79B0400AB6EE8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0E7BFD18D79B0400AB6EE8 /* MainViewController.m */; };
+		FB68577318DB4EEB002DFDB7 /* html in Resources */ = {isa = PBXBuildFile; fileRef = FB68577218DB4EEB002DFDB7 /* html */; };
+		FB9016F018D8F107002EF48F /* UIWebViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9016EF18D8F107002EF48F /* UIWebViewBridge.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB0E7BDD18D7907F00AB6EE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB0E7BB518D7907E00AB6EE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB0E7BBC18D7907E00AB6EE8;
+			remoteInfo = "UIWebViewBridge Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB0E7BBD18D7907E00AB6EE8 /* UIWebViewBridge Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIWebViewBridge Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0E7BC018D7907E00AB6EE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FB0E7BC218D7907E00AB6EE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FB0E7BC418D7907E00AB6EE8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB0E7BC818D7907E00AB6EE8 /* UIWebViewBridge Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIWebViewBridge Example-Info.plist"; sourceTree = "<group>"; };
+		FB0E7BCA18D7907E00AB6EE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB0E7BCC18D7907E00AB6EE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB0E7BCE18D7907E00AB6EE8 /* UIWebViewBridge Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebViewBridge Example-Prefix.pch"; sourceTree = "<group>"; };
+		FB0E7BCF18D7907E00AB6EE8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB0E7BD018D7907E00AB6EE8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB0E7BD218D7907E00AB6EE8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB0E7BD818D7907F00AB6EE8 /* UIWebViewBridge ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIWebViewBridge ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0E7BD918D7907F00AB6EE8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FB0E7BE118D7907F00AB6EE8 /* UIWebViewBridge ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIWebViewBridge ExampleTests-Info.plist"; sourceTree = "<group>"; };
+		FB0E7BE318D7907F00AB6EE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FB0E7BE518D7907F00AB6EE8 /* UIWebViewBridge_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIWebViewBridge_ExampleTests.m; sourceTree = "<group>"; };
+		FB0E7BFA18D796FE00AB6EE8 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FB0E7BFC18D79B0400AB6EE8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FB0E7BFD18D79B0400AB6EE8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FB68577218DB4EEB002DFDB7 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
+		FB9016EE18D8F107002EF48F /* UIWebViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewBridge.h; sourceTree = "<group>"; };
+		FB9016EF18D8F107002EF48F /* UIWebViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewBridge.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB0E7BBA18D7907E00AB6EE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0E7BC318D7907E00AB6EE8 /* CoreGraphics.framework in Frameworks */,
+				FB0E7BC518D7907E00AB6EE8 /* UIKit.framework in Frameworks */,
+				FB0E7BC118D7907E00AB6EE8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB0E7BD518D7907F00AB6EE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0E7BDA18D7907F00AB6EE8 /* XCTest.framework in Frameworks */,
+				FB0E7BDC18D7907F00AB6EE8 /* UIKit.framework in Frameworks */,
+				FB0E7BDB18D7907F00AB6EE8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB0E7BB418D7907E00AB6EE8 = {
+			isa = PBXGroup;
+			children = (
+				FB9016ED18D8ED0E002EF48F /* UIWebViewBridge */,
+				FB0E7BC618D7907E00AB6EE8 /* UIWebViewBridge Example */,
+				FB0E7BDF18D7907F00AB6EE8 /* UIWebViewBridge ExampleTests */,
+				FB0E7BBF18D7907E00AB6EE8 /* Frameworks */,
+				FB0E7BBE18D7907E00AB6EE8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB0E7BBE18D7907E00AB6EE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BBD18D7907E00AB6EE8 /* UIWebViewBridge Example.app */,
+				FB0E7BD818D7907F00AB6EE8 /* UIWebViewBridge ExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB0E7BBF18D7907E00AB6EE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BC018D7907E00AB6EE8 /* Foundation.framework */,
+				FB0E7BC218D7907E00AB6EE8 /* CoreGraphics.framework */,
+				FB0E7BC418D7907E00AB6EE8 /* UIKit.framework */,
+				FB0E7BD918D7907F00AB6EE8 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB0E7BC618D7907E00AB6EE8 /* UIWebViewBridge Example */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BF918D796B900AB6EE8 /* viewcontrollers */,
+				FB0E7BCF18D7907E00AB6EE8 /* AppDelegate.h */,
+				FB0E7BD018D7907E00AB6EE8 /* AppDelegate.m */,
+				FB0E7BD218D7907E00AB6EE8 /* Images.xcassets */,
+				FB0E7BC718D7907E00AB6EE8 /* Supporting Files */,
+				FB0E7BFA18D796FE00AB6EE8 /* MainStoryboard.storyboard */,
+			);
+			path = "UIWebViewBridge Example";
+			sourceTree = "<group>";
+		};
+		FB0E7BC718D7907E00AB6EE8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BC818D7907E00AB6EE8 /* UIWebViewBridge Example-Info.plist */,
+				FB0E7BC918D7907E00AB6EE8 /* InfoPlist.strings */,
+				FB0E7BCC18D7907E00AB6EE8 /* main.m */,
+				FB0E7BCE18D7907E00AB6EE8 /* UIWebViewBridge Example-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB0E7BDF18D7907F00AB6EE8 /* UIWebViewBridge ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BE518D7907F00AB6EE8 /* UIWebViewBridge_ExampleTests.m */,
+				FB0E7BE018D7907F00AB6EE8 /* Supporting Files */,
+			);
+			path = "UIWebViewBridge ExampleTests";
+			sourceTree = "<group>";
+		};
+		FB0E7BE018D7907F00AB6EE8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BE118D7907F00AB6EE8 /* UIWebViewBridge ExampleTests-Info.plist */,
+				FB0E7BE218D7907F00AB6EE8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB0E7BF918D796B900AB6EE8 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				FB0E7BFC18D79B0400AB6EE8 /* MainViewController.h */,
+				FB0E7BFD18D79B0400AB6EE8 /* MainViewController.m */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
+		FB9016ED18D8ED0E002EF48F /* UIWebViewBridge */ = {
+			isa = PBXGroup;
+			children = (
+				FB68577218DB4EEB002DFDB7 /* html */,
+				FB9016EE18D8F107002EF48F /* UIWebViewBridge.h */,
+				FB9016EF18D8F107002EF48F /* UIWebViewBridge.m */,
+			);
+			name = UIWebViewBridge;
+			path = ../../../Common/iOS/common/_iOS_common/customcomponents/UIWebViewBridge/1.0;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB0E7BBC18D7907E00AB6EE8 /* UIWebViewBridge Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB0E7BE918D7907F00AB6EE8 /* Build configuration list for PBXNativeTarget "UIWebViewBridge Example" */;
+			buildPhases = (
+				FB0E7BB918D7907E00AB6EE8 /* Sources */,
+				FB0E7BBA18D7907E00AB6EE8 /* Frameworks */,
+				FB0E7BBB18D7907E00AB6EE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UIWebViewBridge Example";
+			productName = "UIWebViewBridge Example";
+			productReference = FB0E7BBD18D7907E00AB6EE8 /* UIWebViewBridge Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB0E7BD718D7907F00AB6EE8 /* UIWebViewBridge ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB0E7BEC18D7907F00AB6EE8 /* Build configuration list for PBXNativeTarget "UIWebViewBridge ExampleTests" */;
+			buildPhases = (
+				FB0E7BD418D7907F00AB6EE8 /* Sources */,
+				FB0E7BD518D7907F00AB6EE8 /* Frameworks */,
+				FB0E7BD618D7907F00AB6EE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB0E7BDE18D7907F00AB6EE8 /* PBXTargetDependency */,
+			);
+			name = "UIWebViewBridge ExampleTests";
+			productName = "UIWebViewBridge ExampleTests";
+			productReference = FB0E7BD818D7907F00AB6EE8 /* UIWebViewBridge ExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB0E7BB518D7907E00AB6EE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Kaoru Kawashima";
+				TargetAttributes = {
+					FB0E7BBC18D7907E00AB6EE8 = {
+						DevelopmentTeam = B4KUL42RFQ;
+					};
+					FB0E7BD718D7907F00AB6EE8 = {
+						TestTargetID = FB0E7BBC18D7907E00AB6EE8;
+					};
+				};
+			};
+			buildConfigurationList = FB0E7BB818D7907E00AB6EE8 /* Build configuration list for PBXProject "UIWebViewBridge Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB0E7BB418D7907E00AB6EE8;
+			productRefGroup = FB0E7BBE18D7907E00AB6EE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB0E7BBC18D7907E00AB6EE8 /* UIWebViewBridge Example */,
+				FB0E7BD718D7907F00AB6EE8 /* UIWebViewBridge ExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB0E7BBB18D7907E00AB6EE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0E7BFB18D796FE00AB6EE8 /* MainStoryboard.storyboard in Resources */,
+				FB68577318DB4EEB002DFDB7 /* html in Resources */,
+				FB0E7BCB18D7907E00AB6EE8 /* InfoPlist.strings in Resources */,
+				FB0E7BD318D7907E00AB6EE8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB0E7BD618D7907F00AB6EE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0E7BE418D7907F00AB6EE8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB0E7BB918D7907E00AB6EE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB9016F018D8F107002EF48F /* UIWebViewBridge.m in Sources */,
+				FB0E7BD118D7907E00AB6EE8 /* AppDelegate.m in Sources */,
+				FB0E7BFE18D79B0400AB6EE8 /* MainViewController.m in Sources */,
+				FB0E7BCD18D7907E00AB6EE8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB0E7BD418D7907F00AB6EE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB0E7BE618D7907F00AB6EE8 /* UIWebViewBridge_ExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB0E7BDE18D7907F00AB6EE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB0E7BBC18D7907E00AB6EE8 /* UIWebViewBridge Example */;
+			targetProxy = FB0E7BDD18D7907F00AB6EE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB0E7BC918D7907E00AB6EE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB0E7BCA18D7907E00AB6EE8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FB0E7BE218D7907F00AB6EE8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB0E7BE318D7907F00AB6EE8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB0E7BE718D7907F00AB6EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB0E7BE818D7907F00AB6EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB0E7BEA18D7907F00AB6EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIWebViewBridge Example/UIWebViewBridge Example-Prefix.pch";
+				INFOPLIST_FILE = "UIWebViewBridge Example/UIWebViewBridge Example-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FB0E7BEB18D7907F00AB6EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIWebViewBridge Example/UIWebViewBridge Example-Prefix.pch";
+				INFOPLIST_FILE = "UIWebViewBridge Example/UIWebViewBridge Example-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FB0E7BED18D7907F00AB6EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UIWebViewBridge Example.app/UIWebViewBridge Example";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIWebViewBridge Example/UIWebViewBridge Example-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "UIWebViewBridge ExampleTests/UIWebViewBridge ExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FB0E7BEE18D7907F00AB6EE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UIWebViewBridge Example.app/UIWebViewBridge Example";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIWebViewBridge Example/UIWebViewBridge Example-Prefix.pch";
+				INFOPLIST_FILE = "UIWebViewBridge ExampleTests/UIWebViewBridge ExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB0E7BB818D7907E00AB6EE8 /* Build configuration list for PBXProject "UIWebViewBridge Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB0E7BE718D7907F00AB6EE8 /* Debug */,
+				FB0E7BE818D7907F00AB6EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB0E7BE918D7907F00AB6EE8 /* Build configuration list for PBXNativeTarget "UIWebViewBridge Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB0E7BEA18D7907F00AB6EE8 /* Debug */,
+				FB0E7BEB18D7907F00AB6EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB0E7BEC18D7907F00AB6EE8 /* Build configuration list for PBXNativeTarget "UIWebViewBridge ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB0E7BED18D7907F00AB6EE8 /* Debug */,
+				FB0E7BEE18D7907F00AB6EE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB0E7BB518D7907E00AB6EE8 /* Project object */;
+}

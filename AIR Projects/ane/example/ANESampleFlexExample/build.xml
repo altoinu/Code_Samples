@@ -1,0 +1,49 @@
+<project default="build" name="Project Build" basedir=".">
+
+	<!--
+	Variables
+	Rename these as necessary
+	-->
+	<eclipse.convertPath resourcepath="/ANESampleBuild" property="project.ane.builddir" />
+
+	<target name="build">
+
+		<!--
+		Build ANE from specified project using its build.xml
+		-->
+		<echo message="Building ane from project: ${project.ane.builddir}" />
+		<ant antfile="build.xml" dir="${project.ane.builddir}" inheritall="false">
+		</ant>
+
+		<!--
+		Copy new ANE to current project
+		-->
+		<!--
+		<echo message="Deleting previous ane files in ${basedir}${file.separator}ane"/>
+		<delete>
+			<fileset dir="${basedir}${file.separator}ane" includes="*.ane"/>
+		</delete>
+		-->
+
+		<pathconvert property="project.ane.files" pathsep="${line.separator}">
+			<fileset dir="${project.ane.builddir}${file.separator}ane">
+				<include name="**/*.ane" />
+			</fileset>
+		</pathconvert>
+
+		<loadresource property="project.ane.files.list">
+			<string value="${project.ane.files}" />
+		</loadresource>
+
+		<echo message="Copying ane files to ${basedir}${file.separator}ane" />
+		<echo message="${project.ane.files.list}" />
+
+		<copy todir="${basedir}${file.separator}ane">
+			<fileset dir="${project.ane.builddir}${file.separator}ane">
+				<include name="**/*.ane" />
+			</fileset>
+		</copy>
+
+	</target>
+
+</project>

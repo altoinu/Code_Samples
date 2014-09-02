@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   applicationDPI="320"
+			   applicationComplete="application1_applicationCompleteHandler(event)"
+			   activate="application1_activateHandler(event)"
+			   deactivate="application1_deactivateHandler(event)">
+	<!--
+		<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@media (application-dpi: 160) AND (os-platform:"IOS") AND (min-os-version: 7)
+		{
+			s|Application {
+				osStatusBarHeight: 20;
+			}
+		}
+	</fx:Style>
+	-->
+	
+	<fx:Script>
+		<![CDATA[
+			import com.altoinu.ane.test.ANETest;
+			import com.altoinu.ane.test.events.ANETestEvent;
+			
+			import mx.events.FlexEvent;
+			
+			[Bindable]
+			private var count:int = 0;
+			
+			protected function application1_applicationCompleteHandler(event:FlexEvent):void
+			{
+				
+				ANETest.getInstance().addEventListener(ANETestEvent.BOOM, onANETestEvent);
+				
+			}
+			
+			protected function application1_activateHandler(event:Event):void
+			{
+				
+				trace("activate");
+				
+			}
+			
+			protected function application1_deactivateHandler(event:Event):void
+			{
+				
+				trace("deactivate");
+				
+			}
+			
+			private function onANETestEvent(event:ANETestEvent):void
+			{
+				
+				trace("onANETestEvent");
+				trace(event.data.code);
+				trace(event.data.level);
+				
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				
+				var returnMsg:String = ANETest.getInstance().showAlert("ANE alert message!");
+				trace(returnMsg);
+				
+			}
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+				
+				ANETest.getInstance().showNativeView();
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<s:Button label="Alert!"
+			  click="button1_clickHandler(event)"/>
+	
+	<s:Button label="Show Native View"
+			  click="button2_clickHandler(event)"/>
+	
+	<s:Button label="Count: {count}"
+			  click="count++;"/>
+	
+</s:Application>

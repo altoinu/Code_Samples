@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:pv3d="com.altoinu.flex.customcomponents.mx.pv3d.*"
+	layout="absolute"
+	frameRate="60"
+	applicationComplete="onApplicationComplete(event);">
+	
+	<mx:Script source="designer3D.as"/>
+	
+	<mx:Script>
+		<![CDATA[
+			
+			private var currentRotationX:Number = 0;
+			private var currentRotationY:Number = 0;
+			
+		]]>
+	</mx:Script>
+	
+	<pv3d:DesignableDAEModelViewFlex id="content_3DModel"
+		width="100%" height="100%"
+		targetModel="{_designModel}"
+		cameraType="Free"
+		autoScaleToStage="true"
+		rendering="true"
+		interactive="true"/>
+	
+	<mx:VBox
+		width="100%" height="100%"
+		paddingLeft="50" paddingRight="50" paddingTop="50" paddingBottom="50">
+		
+		<mx:VSlider
+			height="100%"
+			value="0"
+			minimum="-720" maximum="720"
+			liveDragging="true"
+			change="rotateBy(currentRotationX - event.value, X_AXIS); currentRotationX = event.value;"/>
+		
+		<mx:HSlider
+			width="100%"
+			value="0"
+			minimum="-720" maximum="720"
+			liveDragging="true"
+			change="rotateBy(event.value - currentRotationY, Y_AXIS); currentRotationY = event.value;"/>
+		
+		<mx:HBox
+			width="100%"
+			horizontalAlign="center">
+			
+			<mx:Button
+				label="Draw"
+				click="setDrawingTool();"/>
+				
+			<mx:Button
+				label="Erase"
+				click="setEraserTool();"/>
+			
+		</mx:HBox>
+		
+	</mx:VBox>
+	
+</mx:Application>

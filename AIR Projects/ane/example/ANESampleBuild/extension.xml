@@ -1,0 +1,23 @@
+<extension xmlns="http://ns.adobe.com/air/extension/14.0">
+	<id>com.altoinu.ane.test.aneTest</id>
+	<versionNumber>0.0.1</versionNumber>
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libANESampleAndroidLib.jar</nativeLibrary>
+				<initializer>com.altoinu.ane.test.ANETestExtension</initializer>
+				<finalizer>com.altoinu.ane.test.ANETestExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="iPhone-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libANESampleiOS.a</nativeLibrary>
+				<initializer>ANETestExtensionInitializer</initializer>
+				<finalizer>ANETestExtensionFinalizer</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="default">
+			<applicationDeployment/>
+		</platform>
+	</platforms>
+</extension>

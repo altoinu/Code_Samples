@@ -1,0 +1,1 @@
+This sample contains example of how to use package com.altoinu.flash.customcomponents.drawingboard

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:controls="com.altoinu.flex.customcomponents.mx.controls.*"
+			   backgroundAlpha="0"
+			   applicationDPI="160"
+			   applicationComplete="application1_applicationCompleteHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			private var sourceLoader:URLLoader = new URLLoader();
+			
+			protected function application1_applicationCompleteHandler(event:FlexEvent):void
+			{
+				
+				//player.source = "video/movie.flv";
+				player.source = "http://googledrive.com/host/0B15rMw1YAucncjBVOWhyMmtVeE0/test/video/Desperate.mp4";
+				
+				return;
+				
+				// Optional- trick to load video and caching it locally
+				
+				// First load .mp4 as binary. Then once complete, store in local storage and play from there
+				var source:String = player.source as String;
+				var sourceReq:URLRequest = new URLRequest(source);
+				
+				sourceLoader.dataFormat = URLLoaderDataFormat.BINARY;
+				sourceLoader.addEventListener(ProgressEvent.PROGRESS, onSourceLoadProgress);
+				sourceLoader.addEventListener(Event.COMPLETE, onSourceLoadComplete);
+				sourceLoader.load(sourceReq);
+				
+			}
+			
+			private function onSourceLoadProgress(event:ProgressEvent):void
+			{
+				
+				trace(event.bytesLoaded, event.bytesTotal);
+				
+			}
+			
+			private function onSourceLoadComplete(event:Event):void
+			{
+				
+				trace("Complete!");
+				
+				// This requires permission <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> on Android
+				//var movieFile:File = File.applicationStorageDirectory.resolvePath("cache/movie.mp4");
+				//var movieFile:File = File.userDirectory.resolvePath("curryrice/cache/movie.mp4");
+				var movieFile:File = File.cacheDirectory.resolvePath("curryrice/cache/movie.mp4");
+				trace(movieFile.nativePath);
+				
+				var fs:FileStream = new FileStream();
+				fs.open(movieFile, FileMode.WRITE);
+				fs.writeBytes(sourceLoader.data as ByteArray);
+				fs.close();
+				
+				// Either way works
+				player.source = "file://" + movieFile.nativePath;
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<!--
+	This label is under the StageVideoPlayerUIComponent,
+	but once StageVideo kicks in, it should display in front
+	because StageVideo displays behind everything in Flash layer.
+	-->
+	<s:Label text="Hello world..."
+			 color="#FF0000"
+			 horizontalCenter="0" verticalCenter="0"/>
+	
+	<!--
+	Note: StageVideoPlayer requires <renderMode>direct</renderMode> on mobile
+	
+	Of cource, you can also set source directly to http URL
+	source="http://akamai.eprizecdn.net/milotto/players/keno_animation_swfs/kicker_animations/version_1/kicker_2x.mp4"
+	-->
+	<controls:StageVideoPlayerUIComponent id="player"
+										  width="100%" height="100%"
+										  backgroundColor="#FFFF00"
+										  autoPlay="true"
+										  autoRewind="true"/>
+	
+	<s:HGroup bottom="0"
+			  width="100%"
+			  horizontalAlign="center">
+		
+		<s:Button label="{player.isPaused || !player.isPlaying ? 'PLAY' : 'STOP'}"
+				  click="player.isPaused || !player.isPlaying ? player.play() : player.stop();"/>
+		
+		<s:Button label="{!player.isPaused ? 'PAUSE' : 'RESUME'}"
+				  click="!player.isPaused ? player.pause() : player.resume();"/>
+		
+	</s:HGroup>
+	
+</s:Application>

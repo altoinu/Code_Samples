@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:controls="com.altoinu.air.mx.controls.*"
+			   applicationDPI="160"
+			   applicationComplete="application1_applicationCompleteHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			//--------------------------------------------------------------------------
+			//
+			//  Private properties
+			//
+			//--------------------------------------------------------------------------
+			
+			//[Bindable]
+			//private var source:String;
+			
+			[Bindable]
+			private var webViewEnabled:Boolean = false;
+			
+			[Bindable]
+			private var staticBitmapMode:Boolean = false;
+			
+			[Bindable]
+			private var textFromJS:String;
+			
+			//--------------------------------------------------------------------------
+			//
+			//  Public methods
+			//
+			//--------------------------------------------------------------------------
+			
+			public function awesomeFunction(text1:String, text2:String):void
+			{
+				
+				trace("I got something from HTML:")
+				trace(text1)
+				trace(text2);
+				
+				textFromJS = text1 + " === " + text2;
+				
+			}
+			
+			public function processReturnedData(returnValue1:Number, returnValue2:String):void
+			{
+				
+				trace("I got something from HTML:");
+				trace(returnValue1);
+				trace(returnValue2);
+				
+				textFromJS = returnValue2;
+				
+			}
+			
+			//--------------------------------------------------------------------------
+			//
+			//  Event handlers
+			//
+			//--------------------------------------------------------------------------
+			
+			protected function application1_applicationCompleteHandler(event:FlexEvent):void
+			{
+				
+				/*
+				// Copy necessary files from application directory to storage directory
+				// Otherwise StageWebView cannot load them
+				LocalStorageCache.copyToLocal(File.applicationDirectory.resolvePath("html/jquery-1.7.2.min.js"), "html/jquery-1.7.2.min.js");
+				LocalStorageCache.copyToLocal(File.applicationDirectory.resolvePath("html/utils.js"), "html/utils.js");
+				LocalStorageCache.copyToLocal(File.applicationDirectory.resolvePath("html/WebViewBridge.js"), "html/WebViewBridge.js");
+				var dest:File = LocalStorageCache.copyToLocal(File.applicationDirectory.resolvePath("html/index.html"), "html/index.html");
+				
+				// load in StageWebView
+				trace(escape(dest.nativePath));
+				trace(dest.exists);
+				source = "file://" + escape(dest.nativePath);
+				*/
+				
+				// then enable web view
+				webViewEnabled = true;
+				
+			}
+			
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				
+				webView.execJavaScript("sayHello", ["Hello world", "I like curry rice"]);
+				webView.execJavaScript("sayHello", ["Good morning world", "I like katsu curry rice"]);
+				
+			}
+			
+			protected function button2_clickHandler(event:MouseEvent):void
+			{
+				
+				webView.execJavaScript("giveMeData", [3, "Blah"], processReturnedData);
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:layout>
+		<s:VerticalLayout gap="0"
+						  horizontalAlign="center"/>
+	</s:layout>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Button label="bitmap mode {staticBitmapMode}"
+			  click="staticBitmapMode = !staticBitmapMode;"/>
+	
+	<s:BorderContainer id="container"
+					   width="100%" height="100%">
+		
+		<!--
+		source="{source}"
+		-->
+		<controls:StageWebViewBridgeUIComponent id="webView"
+												width="100%" height="100%"
+												enabled="{webViewEnabled}"
+												staticBitmapMode="{staticBitmapMode}"
+												callbackDelegate="{this}"/>
+		
+		<s:BorderContainer horizontalCenter="0" verticalCenter="0"
+						   minWidth="0" minHeight="0">
+			<s:Label text="I display when staticBitmapMode = true because StageWebView goes away and StageWebViewBridgeUIComponent shows bitmap"
+					 maxWidth="{container.width}"/>
+		</s:BorderContainer>
+		
+	</s:BorderContainer>
+	
+	<s:Label text="{textFromJS}"
+			 width="100%"/>
+	
+	<s:Button label="Trigger JavaScript"
+			  enabled="{webView.contentLoaded}"
+			  click="button1_clickHandler(event)"/>
+	
+	<s:Button label="Trigger JS and callback"
+			  enabled="{webView.contentLoaded}"
+			  click="button2_clickHandler(event)"/>
+	
+</s:Application>

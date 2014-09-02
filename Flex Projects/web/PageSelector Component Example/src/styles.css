@@ -1,0 +1,66 @@
+.pageSelectorStyle
+{
+	
+	upLinkStylename: "pageSelectorUpLink";
+	selectedLinkStylename: "pageSelectorSelectedLink";
+	
+	ellipsisStylename: "pageSelectorEllipsis";
+	
+	nextLinkSelectedStylename: "pageSelectorNextPreviousLink";
+	nextLinkUpStylename: "pageSelectorNextPreviousLink";
+	
+	previousLinkSelectedStylename: "pageSelectorNextPreviousLink";
+	previousLinkUpStylename: "pageSelectorNextPreviousLink";
+	
+	prevnextLinkSpacing: 0;
+	
+}
+
+.pageSelectorUpLink
+{
+	
+	color: #4d4d4f;
+	font-size: 11;
+	fontFamily: "Verdana";
+	
+	paddingLeft: 0;
+	paddingRight: 0;
+	
+}
+
+.pageSelectorSelectedLink
+{
+	
+	color: #e11e36;
+	text-decoration: underline;
+	font-size: 11;
+	fontFamily: "Arial";
+	
+	paddingLeft: 0;
+	paddingRight: 0;
+	
+}
+
+.pageSelectorEllipsis
+{
+	
+	color: #4d4d4f;
+	font-size: 11;
+	fontFamily: "Verdana";
+	
+	paddingLeft: 0;
+	paddingRight: 0;
+	
+}
+
+.pageSelectorNextPreviousLink
+{
+	
+	color: #e11e36;
+	font-size: 11;
+	fontFamily: "Courier";
+	
+	paddingLeft: 0;
+	paddingRight: 0;
+	
+}

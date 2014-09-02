@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:containers="com.altoinu.flex.customcomponents.mx.containers.*"
+			   preinitialize="application1_preinitializeHandler(event)">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			[Bindable]
+			private var tf:TextFormat = new TextFormat();
+			
+			protected function application1_preinitializeHandler(event:FlexEvent):void
+			{
+				
+				tf.font = "Courier";
+				tf.bold = true;
+				tf.size = 20;
+				tf.color = 0xFF0000;
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</s:layout>
+	
+	<s:BorderContainer width="50%"
+					   backgroundColor="#000000">
+		
+		<containers:AutoScrollTickerContainerFlex width="100%" height="200"
+												  scrolling="true"
+												  scrollVelocityX="-100"
+												  scrollVelocityY="0">
+			<s:BorderContainer width="100" height="100"
+							   backgroundColor="#FF0000">
+				<s:Label text="Hello World"/>
+			</s:BorderContainer>
+			<s:BorderContainer width="100" height="100"
+							   backgroundColor="#FFFF00">
+				<s:Label text="Hello World"/>
+			</s:BorderContainer>
+			<s:BorderContainer width="100" height="100">
+				<s:Label text="Hello World"/>
+			</s:BorderContainer>
+		</containers:AutoScrollTickerContainerFlex>
+		
+	</s:BorderContainer>
+	
+	<s:BorderContainer width="50%">
+		
+		<containers:AutoScrollTextTickerFlex width="100%" height="100"
+											 scrolling="true"
+											 scrollVelocityX="-100"
+											 scrollVelocityY="0"
+											 textFormat="{tf}">
+			<fx:String>Hello</fx:String>
+			<fx:String>World</fx:String>
+			<fx:String>I</fx:String>
+			<fx:String>like</fx:String>
+			<fx:String>curry</fx:String>
+			<fx:String>rice</fx:String>
+		</containers:AutoScrollTextTickerFlex>
+		
+	</s:BorderContainer>
+	
+	<s:BorderContainer width="50%">
+		
+		<containers:AutoScrollTextTickerFlex width="100%" height="100"
+											 scrolling="true"
+											 scrollVelocityX="-100"
+											 scrollVelocityY="0"
+											 texts="{['123', '456', '789', 'ABC', 'DEF']}"/>
+		
+	</s:BorderContainer>
+	
+</s:Application>

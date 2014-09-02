@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="w5d-cB-xJM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="WoO-E9-K5G">
+            <objects>
+                <viewController id="Ei9-FJ-sjo" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vqK-V6-Ded"/>
+                        <viewControllerLayoutGuide type="bottom" id="zny-pM-n8V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Orr-ud-F5m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBd-eu-Vis">
+                                <rect key="frame" x="20" y="480" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Trigger JavaScript">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="triggerJavaScript:" destination="Ei9-FJ-sjo" eventType="touchUpInside" id="eQy-5u-RFT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eru-cj-2Xx">
+                                <rect key="frame" x="20" y="518" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Trigger JS and callback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="triggerJSAndCallbackOnClick:" destination="Ei9-FJ-sjo" eventType="touchUpInside" id="Ds7-Go-eaN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nif-aw-cxw">
+                                <rect key="frame" x="20" y="451" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uey-1c-nbg" customClass="UIWebViewBridge">
+                                <rect key="frame" x="0.0" y="64" width="320" height="379"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Nif-aw-cxw" secondAttribute="centerX" id="19E-Sy-AHw"/>
+                            <constraint firstAttribute="trailing" secondItem="Uey-1c-nbg" secondAttribute="trailing" id="8mb-hB-tK6"/>
+                            <constraint firstItem="Uey-1c-nbg" firstAttribute="top" secondItem="vqK-V6-Ded" secondAttribute="bottom" id="DLN-lg-LzF"/>
+                            <constraint firstItem="zny-pM-n8V" firstAttribute="top" secondItem="eru-cj-2Xx" secondAttribute="bottom" constant="20" id="F25-qi-EOt"/>
+                            <constraint firstAttribute="trailing" secondItem="Nif-aw-cxw" secondAttribute="trailing" constant="20" id="FK0-XR-3jB"/>
+                            <constraint firstAttribute="centerX" secondItem="xBd-eu-Vis" secondAttribute="centerX" id="I5D-Qh-aqj"/>
+                            <constraint firstAttribute="trailing" secondItem="xBd-eu-Vis" secondAttribute="trailing" constant="20" id="JRe-KB-Fyr"/>
+                            <constraint firstItem="eru-cj-2Xx" firstAttribute="leading" secondItem="Orr-ud-F5m" secondAttribute="leading" constant="20" id="Uhb-sr-cAZ"/>
+                            <constraint firstItem="Uey-1c-nbg" firstAttribute="leading" secondItem="Orr-ud-F5m" secondAttribute="leading" id="asj-3w-x5R"/>
+                            <constraint firstItem="xBd-eu-Vis" firstAttribute="top" secondItem="Nif-aw-cxw" secondAttribute="bottom" constant="8" id="bNh-46-riA"/>
+                            <constraint firstItem="eru-cj-2Xx" firstAttribute="top" secondItem="xBd-eu-Vis" secondAttribute="bottom" constant="8" id="gjK-t1-OnT"/>
+                            <constraint firstItem="Nif-aw-cxw" firstAttribute="leading" secondItem="Orr-ud-F5m" secondAttribute="leading" constant="20" id="hn9-iK-Ld4"/>
+                            <constraint firstItem="xBd-eu-Vis" firstAttribute="leading" secondItem="Orr-ud-F5m" secondAttribute="leading" constant="20" id="msV-pj-Qll"/>
+                            <constraint firstAttribute="centerX" secondItem="eru-cj-2Xx" secondAttribute="centerX" id="oHB-Q8-jvv"/>
+                            <constraint firstAttribute="trailing" secondItem="eru-cj-2Xx" secondAttribute="trailing" constant="20" id="pLJ-jI-puq"/>
+                            <constraint firstItem="Nif-aw-cxw" firstAttribute="top" secondItem="Uey-1c-nbg" secondAttribute="bottom" constant="8" id="sI2-TK-hcW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1hW-ib-6F7"/>
+                    <connections>
+                        <outlet property="textFromJS" destination="Nif-aw-cxw" id="MCW-hc-eIU"/>
+                        <outlet property="webView" destination="Uey-1c-nbg" id="QgV-9c-Xu0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90y-WN-HcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="16"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dvj-1G-HFp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5d-cB-xJM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5CY-1O-62m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ei9-FJ-sjo" kind="relationship" relationship="rootViewController" id="Jz4-ma-NnC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcm-lh-Ckd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="332" y="16"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

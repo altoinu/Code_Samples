@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:pagination="com.altoinu.flex.customcomponents.spark.components.pagination.*">
+	
+	<fx:Style source="styles.css"/>
+	
+	<fx:Script>
+		<![CDATA[
+			[Bindable]
+			private var currentPageNumber:int = 1;
+			
+			protected function button_SetPageNumber_clickHandler(event:MouseEvent):void
+			{
+				
+				if (isFinite(Number(newPageNumber.text)) && (Number(newPageNumber.text) > 0))
+					pageNumbers.selectedPageLabelNumber = Number(newPageNumber.text);
+				
+			}
+			
+			protected function button_SetPageNumberDataBinding_clickHandler(event:MouseEvent):void
+			{
+				
+				if (isFinite(Number(newPageNumberViaDataBinding.text)) && (Number(newPageNumberViaDataBinding.text) > 0))
+					currentPageNumber = Number(newPageNumberViaDataBinding.text);
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"
+						  verticalAlign="middle"/>
+	</s:layout>
+	
+	<pagination:PageSelector id="pageNumbers"
+							 direction="horizontal"
+							 gap="20"
+							 ellipsis="..."
+							 numPageLinks="11"
+							 numPages="100"
+							 pageLinkNumLeft="3"
+							 pageLinkNumRight="3"
+							 nextLinkLabel="Next Page"
+							 previousLinkLabel="Prev Page"
+							 selectedPageLabelNumber="{currentPageNumber}"
+							 styleName="pageSelectorStyle"
+							 pageSelected="trace('pageSelected: '+event.previousPageNumber+' -> '+event.newPageNumber);"
+							 pageSelectedClick="trace('pageSelectedClick: '+event.previousPageNumber+' -> '+event.newPageNumber);"/>
+	
+	<s:Label text="Currently selected page: {pageNumbers.selectedPageLabelNumber}"/>
+	
+	<s:Rect height="100"/>
+	
+	<s:HGroup>
+		<s:Label text="Set page number through code"/>
+		<s:TextInput id="newPageNumber"/>
+		<s:Button id="button_SetPageNumber"
+				  label="Set page"
+				  click="button_SetPageNumber_clickHandler(event)"/>
+	</s:HGroup>
+	
+	<s:HGroup>
+		<s:Label text="Set page number through data binding"/>
+		<s:TextInput id="newPageNumberViaDataBinding"/>
+		<s:Button id="button_SetPageNumberDataBinding"
+				  label="Set page"
+				  click="button_SetPageNumberDataBinding_clickHandler(event)"/>
+	</s:HGroup>
+	
+</s:Application>

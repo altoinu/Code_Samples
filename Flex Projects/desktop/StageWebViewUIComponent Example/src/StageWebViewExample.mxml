@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:controls="com.altoinu.air.mx.controls.*">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayList;
+			
+			private static const TESTPAGE1:String = "http://altoinu.com/";
+			private static const TESTPAGE2:String = "http://www.google.com/";
+			private static const TESTPAGE3:String = "http://www.yahoo.com/";
+			private static const TESTPAGE4:String = "http://www.adobe.com/";
+			private static const TESTPAGE5:String = "http://www.somewebsitethatprobablydoesnotexist.com/";
+			
+			[Bindable]
+			private var webViewVisible:Boolean = true;
+			
+			[Bindable]
+			private var webViewEnabled:Boolean = true;
+			
+			[Bindable]
+			private var webViewBitmapMode:Boolean = false;
+			
+			protected function buttonExpand_clickHandler(event:MouseEvent):void
+			{
+				
+				buttonExpander.play();
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		
+		<s:Parallel id="buttonExpander" target="{buttonExpand}">
+			<s:Resize heightTo="200"/>
+		</s:Parallel>
+		
+	</fx:Declarations>
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</s:layout>
+	
+	<!--
+	This button demonstrates that component can resize to fit in Flex layout dynamically
+	-->
+	<s:Button id="buttonExpand"
+			  label="I expand and component should auto resize to fit"
+			  click="buttonExpand_clickHandler(event)"/>
+	
+	<s:Group width="100%" height="100%">
+		
+		<!--
+		Area that displayas StageWebView
+		-->
+		<controls:StageWebViewUIComponent width="100%" height="100%"
+										  source="{comboPageURL.selectedItem as String}"
+										  visible="{webViewVisible}"
+										  enabled="{webViewEnabled}"
+										  staticBitmapMode="{webViewBitmapMode}"
+										  locationChange="trace(event);"
+										  locationChanging="trace(event);"
+										  error="trace(event);"/>
+		
+		<s:BorderContainer horizontalCenter="0" verticalCenter="0"
+						   maxWidth="200">
+			<s:Label text="This Label field will not be visible since StageWebView sits on top of everything, but should become visible when staticBitmapMode = true"
+					 width="100%"/>
+		</s:BorderContainer>
+		
+	</s:Group>
+	
+	<!--
+	Toggles properties of component
+	-->
+	<s:HGroup>
+		
+		<s:Button label="Visibility {webViewVisible}"
+				  click="webViewVisible = !webViewVisible;"/>
+		
+		<s:Button label="Enabled {webViewEnabled}"
+				  click="webViewEnabled = !webViewEnabled;"/>
+		
+		<s:Button label="Bitmap Mode! {webViewBitmapMode}"
+				  click="webViewBitmapMode = !webViewBitmapMode;"/>
+		
+	</s:HGroup>
+	
+	<s:HGroup width="100%" height="175"
+			  verticalAlign="bottom">
+		
+		<s:Label text="Try changing URL"/>
+		<s:DropDownList id="comboPageURL"
+						width="100%"
+						dataProvider="{new ArrayList([TESTPAGE1, TESTPAGE2, TESTPAGE3, TESTPAGE4, TESTPAGE5])}"
+						selectedIndex="0"
+						autoLayout="true"/>
+		
+	</s:HGroup>
+	
+</s:WindowedApplication>

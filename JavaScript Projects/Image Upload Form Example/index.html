@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1; user-scalable=0;">
+<meta charset="US-ASCII">
+
+<title>Test Image Upload Page</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="js/binaryajax.js"></script>
+<script type="text/javascript" src="js/exif.js"></script>
+<script type="text/javascript" src="js/canvasResize.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/NetUtils.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	new com.latcha.tesseract.uploadpage.Main(function(resultText) {
+
+		$("#resultsDisplay").html("<pre>" + resultText + "</pre>");
+		$("html, body").animate({
+			scrollTop: $("#resultsDisplay").offset().top + "px"
+		}, "fast");
+		
+	});
+	
+});
+</script>
+
+</head>
+
+<body>
+
+	<div class="loadingIndicator">
+		<div class="messageContainer">
+			<div class="message">Please wait...</div>
+		</div>
+	</div>
+	
+	<div class="mainContainer">
+		<h2>Test Image Upload Page</h2>
+		<div>
+			<form>
+				<input id="check_autoSubmit" type="checkbox"/>Auto submit<br />
+			</form>
+		</div>
+	
+		<div id="div_imageSubmitFormContainer">
+			<!--
+			<form action="http://devtools.farmhls.latcha.com/iqdemo/index.php/matches/user_form_post"
+			<form action="http://audiimagerecon.liberty.latcha.com/photoliq/index.php/matches/user_form_post"
+			-->
+			<form action="recognize.php"
+				method="post" enctype="multipart/form-data">
+				<input name="photo" type="file" accept="image/*" capture="camera" /><br />
+				<div>
+					Original image <input type="submit" value="Submit image as is" />
+				</div>
+				<img id="img_display" style="position: relative; max-width: 100%;" />
+			</form>
+		</div>
+	
+		<!--
+		<div class="scaledImageContainer">
+			<form action="/photoliq/index.php/matches/user_form_post"
+				method="post" enctype="multipart/form-data">
+				<div>
+					Copy on canvas, 1/2 size of original <input type="submit" value="Submit scaled image" />
+				</div>
+				<canvas class="scaleHalf" style="position: relative; max-width: 50%;" width="0" height="0"></canvas>
+			</form>
+		</div>
+		-->
+	
+		<div class="scaledImageContainer">
+			<form action="recognize.php"
+				method="post" enctype="multipart/form-data">
+				<div>
+					Copy on canvas, scaled to fit in 640x480 <input type="submit" value="Submit scaled image" />
+				</div>
+				<canvas class="scale640x480" style="position: relative; max-width: 50%;" width="0" height="0"></canvas>
+			</form>
+		</div>
+	
+		<div id="resultsDisplay"></div>
+	</div>
+	
+</body>
+
+</html>
