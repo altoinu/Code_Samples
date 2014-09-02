@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="HachuneMiku_IevanPolkka" size="100.000000 75.000000" />
+    <ImageTarget name="HachuneMiku" size="250.000000 156.250000" />
+    <ImageTarget name="OtoroButton" size="100.000000 100.000000" />
+  </Tracking>
+</QCARConfig>
