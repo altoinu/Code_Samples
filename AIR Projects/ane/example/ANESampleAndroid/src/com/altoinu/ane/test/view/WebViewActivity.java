@@ -18,7 +18,8 @@ public class WebViewActivity extends Activity {
         int layoutID = getIntent().getIntExtra("layoutID", -1);
 		System.out.printf("layout ID: %d\n", layoutID);
 
-        setContentView(layoutID);
+		setContentView(layoutID);
+        //setContentView(R.layout.web_view_activity);
 
         int CNNButtonID = getIntent().getIntExtra("CNNButtonID", -1);
 		System.out.printf("CNNButton ID: %d\n", CNNButtonID);
@@ -27,8 +28,11 @@ public class WebViewActivity extends Activity {
 		System.out.printf("YahooButton ID: %d\n", YahooButtonID );
 
 		Button CNNButton = (Button)findViewById(CNNButtonID);
+		//Button CNNButton = (Button)findViewById(R.id.CNNButton);
 		Button YahooButton = (Button)findViewById(YahooButtonID);
+		//Button YahooButton = (Button)findViewById(R.id.YahooButton);
 
+		System.out.printf("add button listeners" );
 		CNNButton.setOnClickListener(new OnClickListener() {
 		    @Override
 			public void onClick(View v) {

@@ -107,18 +107,23 @@
 
 	</target>
 
-	<!-- combine all *.jar files into single file -->
+	<!--
+	combine all *.jar files into single file
+	* Not needed anymore since AIR 4.0, this can now be
+	specified in platform options xml
+	-->
+	<!--
 	<target name="androidJAR">
+	-->
 
 		<!--
 		ADT's export to .jar does not combine 3rd party .jar files
 		so we need to combine all of them into .jar used for ane
-		-->
 		<echo message="Combining all .jar into single file (Adobe AIR ane requires it)" />
+		-->
 
 		<!--
 		Get list of all .jar files in android folder
-		-->
 		<pathconvert property="files.lib.list" pathsep="${line.separator}">
 			<fileset dir="android">
 				<include name="**/*.jar" />
@@ -130,16 +135,19 @@
 		</loadresource>
 
 		<echo message="${files.lib.jar}" />
+		-->
 
 		<!--
 		Zip all .jar files into ANDROID_JAR
-		-->
 		<jar destfile="android${file.separator}${ANDROID_JAR}" update="true">
 			<zipgroupfileset dir="android" includes="**/*.jar">
 			</zipgroupfileset>
 		</jar>
+		-->
 
+	<!--
 	</target>
+	-->
 
 	<target name="iOSxib">
 
@@ -152,7 +160,7 @@
 	</target>
 
 	<!-- build .ane -->
-	<target name="build" depends="mainSWC, libraries, androidJAR">
+	<target name="build" depends="mainSWC, libraries">
 		<!-- iOSxib -->
 
 		<echo message="Building native extension .ane" />
@@ -163,8 +171,8 @@
 			<arg value="-package" />
 			<arg line="-target ane '${ANE_OUTPUT_DIR}${file.separator}${ANE_FILE_NAME}' extension.xml" />
 			<arg line="-swc '${swc.main.name}'" />
-			<arg line="-platform Android-ARM -C android ." />
-			<arg line="-platform iPhone-ARM -platformoptions platformoptions.xml -C ios ." />
+			<arg line="-platform Android-ARM -platformoptions platformoptions_android.xml -C android ." />
+			<arg line="-platform iPhone-ARM -platformoptions platformoptions_ios.xml -C ios ." />
 			<arg line="-platform default -C default ." />
 		</exec>
 
