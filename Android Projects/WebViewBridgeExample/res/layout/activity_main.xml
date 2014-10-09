@@ -23,7 +23,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/webview_border" >
-	        <com.altoinu.android.webkit.WebViewBridge 
+            <com.altoinu.java.android.webkit.WebViewBridge
 	            android:id="@+id/webView1"
 	            android:layout_width="match_parent"
 	            android:layout_height="match_parent" />

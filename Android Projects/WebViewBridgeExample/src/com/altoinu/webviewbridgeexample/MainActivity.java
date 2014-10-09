@@ -16,8 +16,8 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-import com.altoinu.android.webkit.WebViewBridge;
-import com.altoinu.android.webkit.WebViewBridge.CallbackDelegate;
+import com.altoinu.java.android.webkit.WebViewBridge;
+import com.altoinu.java.android.webkit.WebViewBridge.CallbackDelegate;
 
 public class MainActivity extends Activity {
 
