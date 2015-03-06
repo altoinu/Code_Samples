@@ -62,7 +62,7 @@ public class CameraRotateUsingGyroscope : MonoBehaviour
 			//cameraBase = Quaternion.LookRotation(new Vector3(0, 0, -1), new Vector3(0, 1, 0));
 			
 			cameraBase = Quaternion.LookRotation(new Vector3(0, -1, 0), new Vector3(0, 0, 1));
-			
+
 		}
 		
 		targetCamera = Camera.main;

@@ -1,0 +1,95 @@
+Unity -> Android/iOS integration notes
+Tested on Unity 4.6.2
+See example project Code_Samples/Android Projects/UnityChan Android Integration Example
+
+- Start Unity player view
+
+	-- Android
+	1. Export Android project from Unity
+	2. After importing, Project/Properties/Android/Library-> check "Is Library"
+	3. Create new Android Application project
+	4. Open project properties for this new project Project/Properties/Android/Library, Add
+		original exported Unity Android project set as library in step 2
+	5. Copy all contents of "assets" folder in exported Unity Android project to
+		this new project
+	6. Create a new class extending native activity that holds on to Unity player view
+		(usually UnityPlayerNativeActivity in exported Unity Android project)
+	7. Copy Unity player activity info in Android manifest of exported Unity Android project to
+		new project, replace android:name with the new extended Activity class created in step 5
+	8. startActivity this extended Activity class to launch Unity player
+	9. Project clean original export Unity Android project, then build and launch main project
+	
+	TODO:*********** Proxy activity needed?
+	2. Create proxy activity, then start Unity player activity
+	from this activity
+	
+	// In some activity, start proxy activity
+	Intent intent = new Intent(this, ARViewProxyActivity.class);
+	// we don't want proxy activity to be visible to user as much as possible
+	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+	intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+	intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+	startActivity(intent);
+	
+	// In proxy activity, start Unity player native activity
+	Intent intent = new Intent(this, ARViewNativeActivity.class);
+	// TODO:*********** need to be in separate task?
+	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+	startActivity(intent);
+	// Make sure proxy activity is gone after startActivity
+	finish();
+	
+	-- TODO:*********** iOS
+
+- Calling Unity method from native code
+
+	-- Android
+	UnityPlayer.UnitySendMessage("objectName", "methodNAme", params);
+	UnityPlayer.UnitySendMessage("greenSphere", "changeMaterialColor", message);
+	
+	To pass info at Unity start, do UnitySendMessage in onResume()
+
+- Calling Android/iOS methods from Unity
+
+	-- Android
+	1. Create public (static) void method in activity class that extends Unity player activity
+	public void someMethodToBeCalled()
+	public static void someStaticMethodToBeCalled()
+	public void someMethodToBeCalledWithParam(String message, int messageNum)
+	
+	2. In Unity code, get reference to activity then call public java method in it
+	AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	AndroidJavaObject currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+	currentActivity.Call("someMethodToBeCalled");
+	currentActivity.CallStatic("someStaticMethodToBeCalled");
+	
+	// optionally with parameters
+	object[] optionalParamsToPass = {"some string", 12345};
+	currentActivity.Call("someMethodToBeCalledWithParam", optionalParamsToPass);
+	
+	-- TODO:*********** iOS
+	1. 
+	
+	2. In Unity code, specifiy method to be called
+	[DllImport("__Internal")]
+	private static extern void someMethodToBeCalled(string message, int messageNum);
+	
+	3. Call Obj C method directly
+	#if UNITY_IPHONE
+	if (Application.platform == RuntimePlatform.IPhonePlayer) {
+		
+		// optionally with corresponding parameters
+		object[] optionalParamsToPass = {"some string", 12345};
+		someMethodToBeCalled(optionalParamsToPass[0].ToString(), int.Parse(optionalParamsToPass[1].ToString()));
+		
+	}
+	#endif
+
+- Android, handling back key to go back to previous activity
+
+	1. Call Android method from Unity (see above)
+	2. finish(); the activity class extending one that holds Unity player view
+	3. Under protected void onPause() in this activity class, call
+		this.mUnityPlayer.quit(); to shut down Unity player
+	

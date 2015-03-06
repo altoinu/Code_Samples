@@ -30,12 +30,16 @@ public class CameraRotateUsingAccelerometer : MonoBehaviour
 		
 		// Using accelerometer, rotate camera
 		if (accelerometerAvailable) {
-			
+
 			Vector3 acceleration = Input.acceleration;
-			acceleration.x *= -1;
+			acceleration.x *= 1;
+			acceleration.y *= 1;
+			acceleration.z *= -1;
 			float lowPassFilterFactor = 1.0f;
 			targetCamera.transform.rotation = Quaternion.Slerp(targetCamera.transform.rotation, Quaternion.FromToRotation (gravity, acceleration), lowPassFilterFactor);
-			
+
+			targetCamera.transform.Rotate(new Vector3(0, 180, 0));
+
 		}
 		
 	}

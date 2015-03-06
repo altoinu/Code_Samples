@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Attach this to image target to detect when it is seen by camera
+ */
 public class TargetDetectedEventHandler : MonoBehaviour, ITrackableEventHandler {
 	
 	private TrackableBehaviour mTrackableBehaviour;
@@ -28,7 +31,8 @@ public class TargetDetectedEventHandler : MonoBehaviour, ITrackableEventHandler 
     {
 
         if (newStatus == TrackableBehaviour.Status.DETECTED ||
-            newStatus == TrackableBehaviour.Status.TRACKED)
+		    newStatus == TrackableBehaviour.Status.TRACKED ||
+		    newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
 
 			#if UNITY_ANDROID
