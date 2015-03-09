@@ -7,13 +7,11 @@
  */
 package com.altoinu.unity.android.unitychanandroidintegration;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.altoinu.unity.UnityChan.UnityPlayerNativeActivity;
 import com.altoinu.unity.android.unitychanandroidintegration.supportClasses.DebugValues;
-import com.unity3d.player.UnityPlayer;
 
 public class UnityChanViewActivity extends UnityPlayerNativeActivity {
 
