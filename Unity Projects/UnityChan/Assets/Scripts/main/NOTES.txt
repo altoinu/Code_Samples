@@ -19,37 +19,20 @@ See example project Code_Samples/Android Projects/UnityChan Android Integration 
 	8. startActivity this extended Activity class to launch Unity player
 	9. Project clean original export Unity Android project, then build and launch main project
 	
-	TODO:*********** Proxy activity needed?
-	2. Create proxy activity, then start Unity player activity
-	from this activity
-	
-	// In some activity, start proxy activity
-	Intent intent = new Intent(this, ARViewProxyActivity.class);
-	// we don't want proxy activity to be visible to user as much as possible
-	intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-	intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-	intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-	startActivity(intent);
-	
-	// In proxy activity, start Unity player native activity
-	Intent intent = new Intent(this, ARViewNativeActivity.class);
-	// TODO:*********** need to be in separate task?
-	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-	intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-	startActivity(intent);
-	// Make sure proxy activity is gone after startActivity
-	finish();
-	
-	-- TODO:*********** iOS
+	-- iOS
+	TODO:***********
 
-- Calling Unity method from native code
+- Calling Unity method from Android/iOS native code
 
 	-- Android
 	UnityPlayer.UnitySendMessage("objectName", "methodNAme", params);
 	UnityPlayer.UnitySendMessage("greenSphere", "changeMaterialColor", message);
 	
-	To pass info at Unity start, do UnitySendMessage in onResume()
+	To pass info at Unity start, do UnityPlayer.UnitySendMessage in onResume()
 
+	-- iOS
+	TODO:***********
+	
 - Calling Android/iOS methods from Unity
 
 	-- Android
@@ -68,7 +51,8 @@ See example project Code_Samples/Android Projects/UnityChan Android Integration 
 	object[] optionalParamsToPass = {"some string", 12345};
 	currentActivity.Call("someMethodToBeCalledWithParam", optionalParamsToPass);
 	
-	-- TODO:*********** iOS
+	-- iOS
+	TODO:***********
 	1. 
 	
 	2. In Unity code, specifiy method to be called

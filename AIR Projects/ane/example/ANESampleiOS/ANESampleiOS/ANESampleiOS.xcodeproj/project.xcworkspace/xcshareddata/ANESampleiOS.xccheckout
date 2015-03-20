@@ -10,29 +10,29 @@
 	<string>ANESampleiOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>166A8DB5-79F4-4C77-9852-5B33E8D49845</key>
-		<string>file:////Volumes/Shio%20Ramen/GIT%20Repository/Code_Samples</string>
+		<key>FFB612DD40C95B89316805CA8803107AD70476F7</key>
+		<string>https://github.com/altoinu/Code_Samples.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AIR Projects/ane/example/ANESampleiOS/ANESampleiOS/ANESampleiOS.xcodeproj/project.xcworkspace</string>
+	<string>AIR Projects/ane/example/ANESampleiOS/ANESampleiOS/ANESampleiOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>166A8DB5-79F4-4C77-9852-5B33E8D49845</key>
+		<key>FFB612DD40C95B89316805CA8803107AD70476F7</key>
 		<string>../../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>file:////Volumes/Shio%20Ramen/GIT%20Repository/Code_Samples</string>
+	<string>https://github.com/altoinu/Code_Samples.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>166A8DB5-79F4-4C77-9852-5B33E8D49845</string>
+	<string>FFB612DD40C95B89316805CA8803107AD70476F7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>166A8DB5-79F4-4C77-9852-5B33E8D49845</string>
+			<string>FFB612DD40C95B89316805CA8803107AD70476F7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Code_Samples</string>
 		</dict>
