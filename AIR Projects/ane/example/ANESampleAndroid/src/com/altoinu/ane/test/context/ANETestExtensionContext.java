@@ -18,7 +18,8 @@ public class ANETestExtensionContext extends FREContext {
 
 	@Override
 	public Map<String, FREFunction> getFunctions() {
-		// Map functions to FREFunction
+		
+		// Map functions available to AIR to FREFunction
 		
 		Map<String, FREFunction> functions = new HashMap<String, FREFunction>();
 		

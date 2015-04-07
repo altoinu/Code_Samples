@@ -35,6 +35,8 @@ package com.altoinu.ane.test
 			if (!(h === hidden))
 				throw new Error("Use getInstance() to get reference to singleton");
 			
+			// Create extension context, with id specified in extension.xml so
+			// this library can figure out which native code to access
 			extContext = ExtensionContext.createExtensionContext("com.altoinu.ane.test.aneTest", "");
 			
 			if (!extContext)
@@ -46,6 +48,7 @@ package com.altoinu.ane.test
 			else
 			{
 				
+				// Listen for status event coming from native code
 				extContext.addEventListener(StatusEvent.STATUS, onStatus);
 				
 			}
@@ -55,6 +58,7 @@ package com.altoinu.ane.test
 		public function showAlert(message:String):String
 		{
 			
+			// example of calling function with argument and return value
 			return extContext.call("showAlertMessage", message) as String;
 			
 		}

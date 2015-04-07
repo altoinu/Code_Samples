@@ -31,6 +31,7 @@
         
     }
     
+    // Dispatch event to AIR
     FREDispatchStatusEventAsync(_context, (const uint8_t*) [code UTF8String], (const uint8_t*) [level UTF8String]);
     
 }

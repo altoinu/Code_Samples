@@ -17,6 +17,7 @@ public class ShowAlert implements FREFunction {
 		//Context appContext = context.getActivity().getApplicationContext();
 		//
 		
+		// arguments specified in AIR will be available in arg
 		String message;
 		
 		try {
@@ -45,6 +46,7 @@ public class ShowAlert implements FREFunction {
 				Log.d(ANETestConstants.LOG_TAG, "OK clicked");
 				dialog.cancel();
 				
+				// Dispatch event to AIR
 				context_alertHandler.dispatchStatusEventAsync("okClicked", "okLevel");
 				
 			}
@@ -58,6 +60,7 @@ public class ShowAlert implements FREFunction {
 				Log.d(ANETestConstants.LOG_TAG, "CANCEL clicked");
 				dialog.cancel();
 
+				// Dispatch event to AIR
 				context_alertHandler.dispatchStatusEventAsync("cancelClicked", "cancelLevel");
 				
 			}
@@ -67,6 +70,7 @@ public class ShowAlert implements FREFunction {
 		AlertDialog alertMsg = alertBuilder.create();
 		alertMsg.show();
 		
+		// Return value to AIR
 		String returnMessage = "Hello back from ANESampleAndroid.ANETestExtension.ShowAlert!";
 		FREObject returnObj;
 		

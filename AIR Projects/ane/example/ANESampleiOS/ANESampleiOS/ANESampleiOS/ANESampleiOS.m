@@ -65,6 +65,8 @@ FREObject showAlertMessage(FREContext context, void* funcData, uint32_t argc, FR
     //NSString *testString = @"Hello, world!";
     //NSString *upperString = [testString uppercaseString];
     
+    // Argument passed from AIR will be available under argv
+    // convert to data Obj C can use
     uint32_t messageLength;
     const uint8_t* messageString;
     FREGetObjectAsUTF8(argv[0], &messageLength, &messageString);
@@ -78,10 +80,11 @@ FREObject showAlertMessage(FREContext context, void* funcData, uint32_t argc, FR
     
     [alert show];
     
+    // Return value to AIR
+    // Convert Obj C data to object AIR can use
     NSString* returnMessage = @"Hello back from ANESampleiOS.ANETestExtension.showAlertMessage!";
     const char* returnString = [returnMessage UTF8String];
     //const unsigned long returnStringLength = strlen(returnString) + 1;
-    
     FREObject returnObj = NULL;
     //FRENewObjectFromUTF8(uint32_t length, const uint8_t *value, FREObject *object)
     FRENewObjectFromUTF8(strlen(returnString) + 1, (const uint8_t*)returnString, &returnObj);
@@ -131,6 +134,7 @@ FREObject showNativeView(FREContext context, void* funcData, uint32_t argc, FREO
 
 void ANETestExtensionContextInitializer(void* extData, const uint8_t* ctxType, FREContext context, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet) {
     
+    // Number of native functions to make available to AIR
     *numFunctionsToTest = 2;
     
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
@@ -153,12 +157,16 @@ void ANETestExtensionContextFinalizer(FREContext context) {
     
 }
 
+// Extension initializer
 void ANETestExtensionInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet) {
     
     *extDataToSet = NULL;
+    
+    // Set references to initializer and finalizer
     *ctxInitializerToSet = &ANETestExtensionContextInitializer;
     *ctxFinalizerToSet = &ANETestExtensionContextFinalizer;
     
+    // other initializations
     if (alertDelegate == nil) {
         
         alertDelegate = [[ANEAlertDelegate alloc] init];
@@ -168,6 +176,7 @@ void ANETestExtensionInitializer(void** extDataToSet, FREContextInitializer* ctx
     
 }
 
+// Extension finalizer
 void ANETestExtensionFinalizer(void* extData) {
     
     return;

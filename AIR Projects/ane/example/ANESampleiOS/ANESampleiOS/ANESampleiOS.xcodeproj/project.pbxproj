@@ -60,7 +60,7 @@
 		FB3E32FA1806094000002DF5 /* ANESampleiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANESampleiOSTests.m; sourceTree = "<group>"; };
 		FB4A146E18279CD800D3AA7F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB4A14781827B0FC00D3AA7F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FB90DA2E1847E4B300E47EC4 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		FBE5B5A51AD439ED000F018F /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 		FB3E32E01806094000002DF5 /* ANESampleiOS */ = {
 			isa = PBXGroup;
 			children = (
-				FB90DA2E1847E4B300E47EC4 /* FlashRuntimeExtensions.h */,
+				FBE5B5A51AD439ED000F018F /* FlashRuntimeExtensions.h */,
 				FB3E32E51806094000002DF5 /* ANESampleiOS.m */,
 				FB2F9B53182AF3B60012791B /* ANEAlertDelegate.h */,
 				FB2F9B54182AF3B60012791B /* ANEAlertDelegate.m */,

@@ -7,6 +7,9 @@ or
 
 Use included Ant build.xml / ANESampleBulid - ANE Build.launch (External Tools Configuration for automated tasks)
 
+ANE building notes
+http://www.adobe.com/devnet/air/articles/building-ane-ios-android-pt1.html
+
 Packaging notes:
 http://help.adobe.com/en_US/air/extensions/WSf268776665d7970d-2e74ffb4130044f3619-7fff.html
 http://help.adobe.com/en_US/air/build/WS901d38e593cd1bac1e63e3d128cdca935b-8000.html
@@ -27,11 +30,11 @@ http://help.adobe.com/en_US/air/build/WS901d38e593cd1bac1e63e3d128cdca935b-8000.
 8. If .ane requires special Android permissions/activity info/etc from manifest, copy them
 	into AIR application descriptor
 
--- iOS TODO: *********
+-- iOS
 1. Create source iOS project with AIR ane stuff
 	(see Code_Samples/AIR Projects/ane/example/ANESampleiOS)
-2. Copy .a
-2. platformoptions_ios.xml
+2. Copy .a library file created to "ios" folder
+3. Edit platformoptions_ios.xml linkerOptions section to add neccessary options
 
 -- Common for both Android and iOS
 1. Create main ActionScript library project to handle ane communication to Android/iOS
