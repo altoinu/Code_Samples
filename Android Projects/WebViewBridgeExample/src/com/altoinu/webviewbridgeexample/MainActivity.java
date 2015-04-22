@@ -29,7 +29,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		// Load HTML page
+		// WebViewBridge set up
+		// WebViewBridge will load assets/html/index.html by default
 		bridgeWebView = (WebViewBridge) findViewById(R.id.webView1);
 		bridgeWebView.setCallbackDelegate(callbackDelegate);
 		
@@ -49,6 +50,9 @@ public class MainActivity extends Activity {
 		
 	}
 	
+	/**
+	 * Methods to be called (either directly or as callback) from HTML page
+	 */
 	private WebViewBridge.CallbackDelegate callbackDelegate = new CallbackDelegate() {
 		
 		public void helloWorldFunc() {
@@ -91,8 +95,10 @@ public class MainActivity extends Activity {
 			Class<?>[] parameterTypes = {Double.class, String.class};
 			Method callback = callbackDelegate.getClass().getMethod("processReturnedData", parameterTypes);
 			
-			Object[] args = {3, "Blah"};
-			bridgeWebView.execJavaScript("giveMeData", args, callback);
+			Object[] args1 = {3, "Blah"};
+			bridgeWebView.execJavaScript("giveMeData", args1, callback);
+			Object[] args2 = {5, "Hello world..."};
+			bridgeWebView.execJavaScript("giveMeData", args2, callback);
 			
 		} catch (NoSuchMethodException e) {
 			
