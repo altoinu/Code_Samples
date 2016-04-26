@@ -6,36 +6,52 @@ See example project Code_Samples/Android Projects/UnityChan Android Integration 
 
 	-- Android
 	1. Export Android project from Unity
-	2. After importing, Project/Properties/Android/Library-> check "Is Library"
-	3. Create new Android Application project
-	4. Open project properties for this new project Project/Properties/Android/Library, Add
+	2. Import it
+	3. Set this Android project as library under Project/Properties/Android/Library-> check "Is Library"
+	4. Create new Android Application project
+	5. Open project properties for this new project Project/Properties/Android/Library, Add
 		original exported Unity Android project set as library in step 2
-	5. Copy all contents of "assets" folder in exported Unity Android project to
+	6. Copy all contents of "assets" folder in exported Unity Android project to
 		this new project
-	6. Create a new class extending native activity that holds on to Unity player view
+	7. Create a new class extending native activity that holds on to Unity player view
 		(usually UnityPlayerNativeActivity in exported Unity Android project)
-	7. Copy Unity player activity info in Android manifest of exported Unity Android project to
+	8. Copy Unity player activity info in Android manifest of exported Unity Android project to
 		new project, replace android:name with the new extended Activity class created in step 5
-	8. startActivity this extended Activity class to launch Unity player
-	9. Project clean original export Unity Android project, then build and launch main project
+	9. startActivity this extended Activity class to launch Unity player
+	10. Project clean original export Unity Android project, then build and launch main project
 	
 	-- iOS
 	TODO:***********
+	- Using native view controller on top of Unity view
+	
+	1. Export Unity Project as iOS, Symlink Unity Libraries option checked
+	2. In iOS project, Build Settings/Objective-C Automatic Reference Counting -> Yes
+	3. Build Phases/Compile Sources - add compiler flag "-fno-objc-arc" on Unity .m .mm files
+		(disables ARC)
+	4. Right click "Unity iOS Bridge" group/Add Files to "...
+		Add following files
+		Common/iOS/common/_iOS_common/utils/Unity Native iOS Integration/Unity iOS Bridge/[version]/UnityiOSBridgeAppDelegate.h
+		Common/iOS/common/_iOS_common/utils/Unity Native iOS Integration/Unity iOS Bridge/[version]/UnityiOSBridgeAppDelegate.m
+	5. Add necessary code to main.mm, UnityAppController.h, and UnityAppController.mm
+		as described in UnityiOSBridgeAppDelegate.h comments
+	6. Create custom app delegate that extends UnityiOSBridgeAppDelegate,
+		set this name in main.mm
 
 - Calling Unity method from Android/iOS native code
 
-	-- Android
+	-- Android -> Unity
 	UnityPlayer.UnitySendMessage("objectName", "methodNAme", params);
 	UnityPlayer.UnitySendMessage("greenSphere", "changeMaterialColor", message);
 	
 	To pass info at Unity start, do UnityPlayer.UnitySendMessage in onResume()
 
-	-- iOS
+	-- iOS -> Unity
 	TODO:***********
+	UnitySendMessage(object_name, method_name[, argument1, argument2...]);
 	
 - Calling Android/iOS methods from Unity
 
-	-- Android
+	-- Unity -> Android
 	1. Create public (static) void method in activity class that extends Unity player activity
 	public void someMethodToBeCalled()
 	public static void someStaticMethodToBeCalled()
@@ -51,25 +67,38 @@ See example project Code_Samples/Android Projects/UnityChan Android Integration 
 	object[] optionalParamsToPass = {"some string", 12345};
 	currentActivity.Call("someMethodToBeCalledWithParam", optionalParamsToPass);
 	
-	-- iOS
+	-- Unity -> iOS
 	TODO:***********
-	1. 
-	
-	2. In Unity code, specifiy method to be called
-	[DllImport("__Internal")]
-	private static extern void someMethodToBeCalled(string message, int messageNum);
-	
-	3. Call Obj C method directly
-	#if UNITY_IPHONE
-	if (Application.platform == RuntimePlatform.IPhonePlayer) {
+	iOS:
+		- Extend UnityiOSBridgeAppDelegate
+		- In this extended class, define method
+			extern "C" {
+				int myAwesomeiOSFunction(int param1, char *param2, ...) {...}
+			}
+	Unity:
 		
-		// optionally with corresponding parameters
-		object[] optionalParamsToPass = {"some string", 12345};
-		someMethodToBeCalled(optionalParamsToPass[0].ToString(), int.Parse(optionalParamsToPass[1].ToString()));
+		[System.Runtime.InteropServices.DllImport("__Internal")]
+		extern static public int myAwesomeiOSFunction(int param1, char *param2,...);
 		
-	}
-	#endif
-
+		[DllImport("__Internal")]
+		private static extern void someMethodToBeCalled(string message, int messageNum);
+		
+		// Call Obj C method directly somewhere in code
+		...
+		#if UNITY_IPHONE
+		if (Application.platform == RuntimePlatform.IPhonePlayer) {
+		
+			// optionally with corresponding parameters
+			
+			myAwesomeiOSFunction(param1, param2,...);
+			
+			object[] optionalParamsToPass = {"some string", 12345};
+			someMethodToBeCalled(optionalParamsToPass[0].ToString(), int.Parse(optionalParamsToPass[1].ToString()));
+			
+		}
+		#endif
+		...
+	
 - Android, handling back key to go back to previous activity
 
 	1. Call Android method from Unity (see above)
